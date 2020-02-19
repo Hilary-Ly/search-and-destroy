@@ -1,10 +1,16 @@
 'use strict';
 
 //Complete this algo
-const isLoop = (linkedlist) => {
-
+const isLoop = linkedlist => {
+   let pointerA = linkedlist.head;
+   let pointerB = linkedlist.head.next
+   while (pointerA !== pointerB && pointerB.next.next !== null) {
+       pointerA = pointerA.next
+       pointerB = pointerB.next.next
+   }
+   if (pointerA === pointerB) return true
+   else return false
 };
-
 
 /*
 EXTRA CREDIT:
@@ -14,4 +20,4 @@ This function should return the Node value the loop begins at
 Remember to write some test specs too!
 
 */
-module.exports = isLoop
+module.exports = isLoop;
